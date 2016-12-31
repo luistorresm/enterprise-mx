@@ -1,0 +1,2 @@
+enterprise git@github.com:Vauxoo/enterprise.git master-edi-inv-mx-las
+server-tools git@github.com:Vauxoo/server-tools.git 9.0

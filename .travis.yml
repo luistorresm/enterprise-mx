@@ -41,8 +41,11 @@ install:
   - export PATH=${HOME}/maintainer-quality-tools/travis:${PATH}
   - pip install --upgrade PyPDF2
   - travis_install_nightly
+  - cd ${HOME}/odoo-master && git remote add vauxoo-dev git@github.com:vauxoo-dev/odoo.git && git fetch vauxoo-dev master-edi-invoice-las-moy && git checkout master-edi-invoice-las-moy
+  - sed -i 's/"auto_install": False/"auto_install": True/g' ${HOME}/server-tools/company_country/__openerp__.py
 
 script:
   - travis_run_tests
+  # load and update language to es_MX
   - if [[ "${RUNBOT}" == "1" ]]; then ${HOME}/odoo-master/odoo-bin -d openerp_test --load-language=es_MX --stop-after-init; fi
   - if [[ "${RUNBOT}" == "1" ]]; then psql openerp_test -c "UPDATE res_partner SET lang='es_MX' WHERE id IN (SELECT partner_id FROM res_users);"; fi
