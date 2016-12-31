@@ -1,0 +1,48 @@
+language: python
+
+sudo: false
+cache:
+  apt: true
+  directories:
+    - $HOME/.cache/pip
+
+addons:
+  apt:
+    packages:
+      - expect-dev
+      - python-lxml
+      - python-simplejson
+      - python-yaml
+      - swig  # Required for m2crypto
+      - python-m2crypto
+      - xmlstarlet
+      - xsltproc
+      - xmlstarlet
+      - openssl
+      - poppler-utils
+      - antiword
+
+python:
+  - "2.7"
+env:
+  global:
+  - LINT_CHECK="0" TESTS="0"
+  - VERSION="master" ODOO_REPO="odoo/odoo"
+  - INCLUDE="l10n_mx_edi"
+  - COUNTRY="MX"
+  matrix:
+  - TESTS="1" PHANTOMJS_VERSION="2.1.1"
+
+virtualenv:
+  system_site_packages: true
+
+install:
+  - git clone --single-branch --depth=1 https://github.com/vauxoo/maintainer-quality-tools.git -b master ${HOME}/maintainer-quality-tools
+  - export PATH=${HOME}/maintainer-quality-tools/travis:${PATH}
+  - pip install --upgrade PyPDF2
+  - travis_install_nightly
+
+script:
+  - travis_run_tests
+  - if [[ "${RUNBOT}" == "1" ]]; then ${HOME}/odoo-master/odoo-bin -d openerp_test --load-language=es_MX --stop-after-init; fi
+  - if [[ "${RUNBOT}" == "1" ]]; then psql openerp_test -c "UPDATE res_partner SET lang='es_MX' WHERE id IN (SELECT partner_id FROM res_users);"; fi
