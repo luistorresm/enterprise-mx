@@ -28,7 +28,7 @@ env:
   global:
   - LINT_CHECK="0" TESTS="0"
   - VERSION="master" ODOO_REPO="odoo/odoo"
-  - INCLUDE="l10n_mx_edi"
+  - INCLUDE="l10n_mx_enterprise"
   - COUNTRY="MX"
   matrix:
   - TESTS="1" PHANTOMJS_VERSION="2.1.1"
