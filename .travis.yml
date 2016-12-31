@@ -39,7 +39,7 @@ virtualenv:
 install:
   - git clone --single-branch --depth=1 https://github.com/vauxoo/maintainer-quality-tools.git -b master ${HOME}/maintainer-quality-tools
   - export PATH=${HOME}/maintainer-quality-tools/travis:${PATH}
-  - pip install --upgrade PyPDF2
+  - pip install --upgrade PyPDF2 ofxparse
   - travis_install_nightly
   - if [[ "${TESTS}" == "1"  ]]; then (cd ${HOME}/odoo-master; git remote add vauxoo-dev git@github.com:vauxoo-dev/odoo.git; git fetch vauxoo-dev --depth=1 master-edi-invoice-las-moy; git checkout master-edi-invoice-las-moy); fi
   - "sed -i 's/\"auto_install\": False/\"auto_install\": True/g' ${HOME}/server-tools/company_country/__openerp__.py"
