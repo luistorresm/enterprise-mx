@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<odoo>
+    <record id="base.main_partner" model="res.partner">
+        <field name="vat">MXAAA010101AAA</field>
+        <field name="country_id" ref="base.mx"/>
+    </record>
+
+    <record id="cfdi_conf" model="account.config.settings">
+        <field name="l10n_mx_edi_pac">solfact</field>
+        <field name="l10n_mx_edi_pac_test_env">True</field>
+        <field name="l10n_mx_edi_pac_username">testing@solucionfactible.com</field>
+        <field name="l10n_mx_edi_pac_password">timbrado.SF.16672</field>
+    </record>
+
+</odoo>
