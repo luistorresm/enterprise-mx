@@ -22,4 +22,7 @@
         <field name="l10n_mx_edi_pac_password">timbrado.SF.16672</field>
         <field name="l10n_mx_edi_certificate_ids" eval="[(6, 0, [ref('l10n_mx_enterprise.cfdi_certs')])]"/>
     </record>
+    <record id="base.res_partner_2" model="res.partner">
+        <field name="vat">MXAAA010101AAA</field>
+    </record>
 </odoo>
