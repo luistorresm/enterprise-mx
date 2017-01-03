@@ -30,6 +30,7 @@ env:
   - VERSION="master" ODOO_REPO="odoo/odoo"
   - INCLUDE="l10n_mx_enterprise"
   - COUNTRY="MX"
+  - TEST_OTHER_PROJECTS="${HOME}/enterprise"
   matrix:
   - TESTS="1" PHANTOMJS_VERSION="2.1.1"
 
