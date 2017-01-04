@@ -40,10 +40,13 @@ virtualenv:
 install:
   - git clone --single-branch --depth=1 https://github.com/vauxoo/maintainer-quality-tools.git -b master ${HOME}/maintainer-quality-tools
   - export PATH=${HOME}/maintainer-quality-tools/travis:${PATH}
-  # Use custom odoo in order to get custom patches
-  - if [[ "${TESTS}" == "1" ]]; then (cd ${HOME}/odoo-master; git remote add odoo-dev git@github.com:odoo-dev/odoo.git; git fetch odoo-dev --depth=1 master-edi-base-las; git checkout master-edi-base-las); fi
   - pip install --upgrade PyPDF2 ofxparse
   - travis_install_nightly
+  # Use custom odoo in order to get custom patches
+  - if [[ "${TESTS}" == "1"  ]]; then (cd ${HOME}/odoo-master; git remote add vauxoo-dev git@github.com:vauxoo-dev/odoo.git; git fetch vauxoo-dev --depth=1 master-edi-invoice-las-moy; git checkout master-edi-invoice-las-moy); fi
+  # Install by default company_country in order to auto install l10n_mx accouting module
+  - "sed -i 's/\"auto_install\": False/\"auto_install\": True/g' ${HOME}/server-tools/company_country/__openerp__.py"
+  - (cd ${HOME}/server-tools; rm -rf $(ls | grep -v company_country$))
   # Seudo-fix https://github.com/OCA/maintainer-quality-tools/issues/398
   - sed -i "s/return 'odoo-bin' if float(odoo_version) >= 10 else 'openerp-server'/return 'odoo-bin'/g" ~/maintainer-quality-tools/travis/test_server.py
 
