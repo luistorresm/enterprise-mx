@@ -43,7 +43,7 @@ install:
   - pip install --upgrade PyPDF2 ofxparse
   - travis_install_nightly
   # Use custom odoo in order to get custom patches
-  - if [[ "${TESTS}" == "1"  ]]; then (cd ${HOME}/odoo-master; git remote add odoo-dev git@github.com:odoo-dev/odoo.git; git fetch odoo-dev --depth=1 master-edi-inv-base-las; git checkout master-edi-inv-base-las); fi
+  - if [[ "${TESTS}" == "1"  ]]; then (cd ${HOME}/odoo-master; git remote add odoo-dev git@github.com:odoo-dev/odoo.git; git fetch odoo-dev --depth=1 master-edi-base-las; git checkout master-edi-base-las); fi
   # Install by default company_country in order to auto install l10n_mx accouting module
   - "sed -i 's/\"auto_install\": False/\"auto_install\": True/g' ${HOME}/server-tools/company_country/__openerp__.py"
   - (cd ${HOME}/server-tools; rm -rf $(ls | grep -v company_country$))
