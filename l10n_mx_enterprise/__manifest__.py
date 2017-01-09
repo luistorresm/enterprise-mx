@@ -7,6 +7,5 @@
     "with basic demo info",
     "version": "1",
     "depends": ["l10n_mx_edi"],
-    "demo": ["demo/global.xml"],
     "installable": True,
 }

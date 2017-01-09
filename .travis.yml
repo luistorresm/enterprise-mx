@@ -32,7 +32,7 @@ env:
   - COUNTRY="MX"
   - TEST_OTHER_PROJECTS="${HOME}/enterprise"
   matrix:
-  - TESTS="1" PHANTOMJS_VERSION="2.1.1"
+  - TESTS="1" PHANTOMJS_VERSION="2.1.1" OPTIONS="--test-commit"
 
 virtualenv:
   system_site_packages: true
