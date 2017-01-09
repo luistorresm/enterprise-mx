@@ -48,5 +48,5 @@ install:
 script:
   - travis_run_tests
   # load and update language to es_MX
-  - if [[ "${RUNBOT}" == "1" ]]; then ${HOME}/odoo-master/odoo-bin -d openerp_test --load-language=es_MX --stop-after-init; fi
+  - if [[ "${RUNBOT}" == "1" ]]; then ${HOME}/odoo-${VERSION}/odoo-bin -d openerp_test --load-language=es_MX --stop-after-init; fi
   - if [[ "${RUNBOT}" == "1" ]]; then psql openerp_test -c "UPDATE res_partner SET lang='es_MX' WHERE id IN (SELECT partner_id FROM res_users);" && sleep 2; fi
