@@ -27,7 +27,7 @@ python:
 env:
   global:
   - LINT_CHECK="0" TESTS="0"
-  - VERSION="master" ODOO_REPO="odoo/odoo"
+  - VERSION="saas-14" ODOO_REPO="odoo/odoo"
   - INCLUDE="l10n_mx_enterprise"
   - COUNTRY="MX"
   - TEST_OTHER_PROJECTS="${HOME}/enterprise"
