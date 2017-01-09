@@ -8,6 +8,7 @@
         <field name="street2">Company Street 2</field>
         <field name="city">Company City</field>
         <field name="zip">37200</field>
+        <field name="property_account_position_id" ref="l10n_mx.account_fiscal_position_personasmoralesdelrgimengeneral0"/>
     </record>
     <record id="cfdi_certs" model="l10n_mx_edi.certificate">
         <field name="content" type="base64" file="l10n_mx_edi/demo/pac_credentials/certificate.cer"/>
