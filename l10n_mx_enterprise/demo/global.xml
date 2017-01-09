@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <odoo>
     <record id="base.main_partner" model="res.partner">
-        <field name="vat">MXAAA010101AAA</field>
+        <field name="vat">AAA010101AAA</field>
         <field name="country_id" ref="base.mx"/>
         <field name="state_id" ref="base.state_mx_jal"/>
         <field name="street">Company Street</field>
@@ -21,8 +21,5 @@
         <field name="l10n_mx_edi_pac_username">cfdi@vauxoo.com</field>
         <field name="l10n_mx_edi_pac_password">vAux00__</field>
         <field name="l10n_mx_edi_certificate_ids" eval="[(6, 0, [ref('l10n_mx_enterprise.cfdi_certs')])]"/>
-    </record>
-    <record id="base.res_partner_2" model="res.partner">
-        <field name="vat">MXAAA010101AAA</field>
     </record>
 </odoo>
